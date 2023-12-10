@@ -1,4 +1,4 @@
-const rename_url = "https://scripts.drtraxx.de",
+const rename_url = "https://raw.githubusercontent.com/firlus/lss-rename-manager/main",
     datestring = new Date().getTime();
 
 var aVehicleTypesNew = aVehicleTypesNew || [],
@@ -23,17 +23,7 @@ var aVehicleTypesNew = aVehicleTypesNew || [],
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <p>Lieber Spieler,</p>
-                                    <br>
-                                    <p>Es ist zwar noch nicht der 1.3., aber leider habe ich schon jetzt schlechte Nachrichten.</p>
-                                    <p>Der Support hat sich mittlerweile zu meinem Anliegen geÃ¤ÃŸert. Dies habe ich auch Deinem und eurem Engagement zu verdanken. An dieser Stelle ein dickes DankeschÃ¶n an Dich und alle anderen!</p>
-                                    <p>Das Ergebnis fiel leider sehr bescheiden aus. Die Sperre bleibt bestehen, man wolle aber auch nicht auf die HintergrÃ¼nde eingehen. Man wolle immerhin die "IntegritÃ¤t der Untersuchungsmethoden" wahren. Zudem batem sie, von RÃ¼ckfragen abzusehen.</p>
-                                    <p>Ich mÃ¶chte mich bei Dir fÃ¼r die Zeit im LSS, so wie das entgegengebrachte Vertrauen gegenÃ¼ber meiner (ab und an auch mal missglÃ¼ckten) Scripts bedanken. Es war eine schÃ¶ne Zeit und hat auch die meiste Zeit wirklich viel SpaÃŸ gemacht.</p>
-                                    <p>Ich bitte um Dein VerstÃ¤ndnis, dass meine Scripts mit sofortiger Wirkung abgeschaltet und ersatzlos gestrichen sind.</p>
-                                    <p>Vielleicht sieht, hÃ¶rt und/ oder schreibt man sich ja irgendwann in einem anderen Spiel.</p>
-                                    <br>
-                                    <p>Liebe GrÃ¼ÃŸe</p>
-                                    <p>DrTraxx</p>
+                                    <p>Goass hat übernommen!</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" onclick="$('.modal_rema').remove()">Close</button>
@@ -43,8 +33,6 @@ var aVehicleTypesNew = aVehicleTypesNew || [],
                     </div>`);
         sessionStorage.msg_traxx = "message shown";
     }
-
-    return;
 
     if (aVehicleTypesNew.length === 0) {
         if (!localStorage.aVehicleTypesNew || JSON.parse(localStorage.aVehicleTypesNew).lastUpdate < (new Date().getTime() - 5 * 1000 * 60)) {
