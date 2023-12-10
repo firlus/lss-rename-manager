@@ -16,14 +16,8 @@ const buildingTypes = [
 let rename_config = {};
 
 async function checkUserId(id) {
-    const badlist = await $.getJSON(`${ rename_url }/additional/bad_user.json`),
-        badUser = badlist.find(u => u.id === id);
 
-    if (badUser) {
-        return { locked: true, name: badUser.name }
-    } else {
-        return { locked: false, name: null }
-    }
+    return { locked: false, name: null };
 }
 
 async function buildingTable(filterType, type) {
