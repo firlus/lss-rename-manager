@@ -1,4 +1,4 @@
-const rename_url = "https://raw.githubusercontent.com/firlus/lss-rename-manager/main",
+const rename_url = "https://raw.githack.com/firlus/lss-rename-manager/main",
     datestring = new Date().getTime();
 
 var aVehicleTypesNew = aVehicleTypesNew || [],
