@@ -28,7 +28,7 @@ var aVehicleTypesNew = aVehicleTypesNew || [],
         if (!localStorage.getItem("cVehicles") || JSON.parse(localStorage.getItem("cVehicles")).lastUpdate < (new Date().getTime() - 5 * 1000 * 60) || JSON.parse(localStorage.getItem("cVehicles")).userId != user_id) {
             await $.getJSON('/api/vehicles').done(data => localStorage.setItem('cVehicles', JSON.stringify({ lastUpdate: new Date().getTime(), value: LZString.compressToUTF16(JSON.stringify(data)), userId: user_id })));
         }
-        aVehicles = JSON.parse(LZString.decompressFromUTF16(JSON.parse(localStorage.getItem(cVehicles)).value));
+        aVehicles = JSON.parse(LZString.decompressFromUTF16(JSON.parse(localStorage.getItem("cVehicles")).value));
     }
 
     const path = window.location.pathname.replace(/\d+/g, "");
