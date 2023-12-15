@@ -16,11 +16,11 @@ function getRenameConfig() {
             databases = notes.split(databaseStart)[1] ? notes.split(databaseStart)[1].trim() : "";
         if (databases.includes(placeholderDatabase)) {
             if (databases.includes(databaseEnd)) {
-                sessionStorage.renameManager = JSON.parse(databases.match(renameRegex)[0].replace(placeholderDatabase, "").replace(databaseEnd, "").trim()).value;
+                localStorage.setItem("renameManager", JSON.parse(databases.match(renameRegex)[0].replace(placeholderDatabase, "").replace(databaseEnd, "").trim()).value);
             } else {
-                sessionStorage.renameManager = LZString.compressToUTF16(databases.match(/(?:=====DATABASE_RENAME_MANAGER=====\n)(?<json>\{.+\})/gm)[0].replace(placeholderDatabase, "").trim());
+                localStorage.setItem("renameManager", LZString.compressToUTF16(databases.match(/(?:=====DATABASE_RENAME_MANAGER=====\n)(?<json>\{.+\})/gm)[0].replace(placeholderDatabase, "").trim()));
             }
-            resolve(JSON.parse(LZString.decompressFromUTF16(sessionStorage.renameManager)));
+            resolve(JSON.parse(LZString.decompressFromUTF16(localStorage.getItem("renameManager"))));
         } else {
             resolve({});
         }
@@ -41,7 +41,7 @@ async function saveRenameConfig() {
         newDatabases = databases ? (databases.includes(placeholderDatabase) ? databases.replace(replaceingRegex, newContent) : (databases + "\n" + newContent)) : (databaseStart + "\n" + newContent),
         databaseContent = personalNotes + "\n\n\n\n\n" + databaseStart + "\n" + newDatabases;
     await $.post("/note", { "note": { "message": databaseContent }, "authenticity_token": $("meta[name=csrf-token]").attr("content"), "_method": "put" });
-    sessionStorage.renameManager = LZString.compressToUTF16(JSON.stringify(rename_config));
+    localStorage.setItem("renameManager",  LZString.compressToUTF16(JSON.stringify(rename_config)));
 }
 
 async function saveRenameToLocalStorage(type) {
